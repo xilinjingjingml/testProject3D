@@ -431,7 +431,6 @@
       "__id__": 14
     },
     "_enabled": true,
-    "__prefab": null,
     "cubePrfb": {
       "__uuid__": "8fab8444-f553-4240-a833-ea65e0c78172",
       "__expectedType__": "cc.Prefab"
@@ -1063,7 +1062,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Label",
+    "_name": "Title",
     "_objFlags": 0,
     "_parent": {
       "__id__": 19

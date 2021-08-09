@@ -1,4 +1,5 @@
 import { _decorator, Component, Prefab, instantiate, Node, CCInteger} from "cc";
+// import { } from ".start/PlayerController";
 const { ccclass, property } = _decorator;
 
 enum BlockType{
@@ -21,6 +22,7 @@ export class GameManager extends Component {
     public roadLength: Number = 50;
     @property({type: PlayerController})
     public playerCtrl: PlayerController = null;
+
     private _road: number[] = [];
 
     private _curState: GameState = GameState.GS_INIT;

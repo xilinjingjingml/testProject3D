@@ -1,5 +1,6 @@
 
 import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, v3, Node } from 'cc';
+// import { } from "../start/";
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
