@@ -21,6 +21,33 @@ export class PlayerController extends Component {
 
     start () {
         // systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+
+        //TODO socket实例 简单连接
+        let ws = new WebSocket("")
+        ws.onopen = (result) => {
+            console.log("jin---on open", result)
+        }
+
+        ws.onmessage = (result) =>{
+            console.log("jin---on message", result)
+        }
+
+        ws.onerror = (result) => {
+            console.log("jin---on error", result)
+        }
+
+        ws.onclose = (result) => {
+            console.log("jin---on close", result)
+        }
+
+        setTimeout(()=>{
+            if(ws.readyState === WebSocket.OPEN){
+                ws.send("Hello WebSocket, I'm a text message.");
+            }else{
+                console.log("WebSocket instance wasn't ready...");
+            }
+        }, 3)
+
     }
 
     onMouseUp(event: EventMouse) {
