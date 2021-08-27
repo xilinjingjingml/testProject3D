@@ -20,40 +20,40 @@ export class GameManager extends Component {
     public cubePrfb: Prefab | null = null;
     @property({type: CCInteger})
     public roadLength: Number = 50;
-    @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
+    // @property({type: PlayerController})
+    // public playerCtrl: PlayerController = null;
 
     private _road: number[] = [];
 
     private _curState: GameState = GameState.GS_INIT;
 
     start () {
-        this.generateRoad();
+        // this.generateRoad();
     }
 
     generateRoad() {
 
-        this.node.removeAllChildren();
+        // this.node.removeAllChildren();
 
-        this._road = [];
-        // startPos
-        this._road.push(BlockType.BT_STONE);
+        // this._road = [];
+        // // startPos
+        // this._road.push(BlockType.BT_STONE);
 
-        for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
-                this._road.push(BlockType.BT_STONE);
-            } else {
-                this._road.push(Math.floor(Math.random() * 2));
-            }
-        }
+        // for (let i = 1; i < this.roadLength; i++) {
+        //     if (this._road[i-1] === BlockType.BT_NONE) {
+        //         this._road.push(BlockType.BT_STONE);
+        //     } else {
+        //         this._road.push(Math.floor(Math.random() * 2));
+        //     }
+        // }
 
-        for (let j = 0; j < this._road.length; j++) {
-            let block: Node = this.spawnBlockByType(this._road[j]);
-            if (block) {
-                this.node.addChild(block);
-                block.setPosition(j, -1.5, 0);
-            }
-        }
+        // for (let j = 0; j < this._road.length; j++) {
+        //     let block: Node = this.spawnBlockByType(this._road[j]);
+        //     if (block) {
+        //         this.node.addChild(block);
+        //         block.setPosition(j, -1.5, 0);
+        //     }
+        // }
     }
 
     spawnBlockByType(type: BlockType) {

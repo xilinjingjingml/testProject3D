@@ -431,6 +431,7 @@
       "__id__": 14
     },
     "_enabled": true,
+    "__prefab": null,
     "cubePrfb": {
       "__uuid__": "8fab8444-f553-4240-a833-ea65e0c78172",
       "__expectedType__": "cc.Prefab"
@@ -1081,7 +1082,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 107.723,
+      "y": 110,
       "z": 0
     },
     "_lrot": {

@@ -23,31 +23,42 @@ export class PlayerController extends Component {
         // systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
 
         //TODO socket实例 简单连接
-        let ws = new WebSocket("")
-        ws.onopen = (result) => {
-            console.log("jin---on open", result)
-        }
+        // let ws = new WebSocket("ws://47.103.86.104:3000")
+        // ws.onopen = (result) => {
+        //     console.log("jin---on open", result)
+        //     ws.send("hello world")
+        // }
 
-        ws.onmessage = (result) =>{
-            console.log("jin---on message", result)
-        }
+        // ws.onmessage = (result) =>{
+        //     console.log("jin---on message", result)
+        // }
 
-        ws.onerror = (result) => {
-            console.log("jin---on error", result)
-        }
+        // ws.onerror = (result) => {
+        //     console.log("jin---on error", result)
+        // }
 
-        ws.onclose = (result) => {
-            console.log("jin---on close", result)
-        }
+        // ws.onclose = (result) => {
+        //     console.log("jin---on close", result)
+        // }
 
-        setTimeout(()=>{
-            if(ws.readyState === WebSocket.OPEN){
-                ws.send("Hello WebSocket, I'm a text message.");
-            }else{
-                console.log("WebSocket instance wasn't ready...");
+        // setTimeout(()=>{
+        //     if(ws.readyState === WebSocket.OPEN){
+        //         ws.send("Hello WebSocket, I'm a text message.");
+        //     }else{
+        //         console.log("WebSocket instance wasn't ready...");
+        //     }
+        // }, 3)
+
+        //TODO 实现简单http实例
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+                var response = xhr.responseText;
+                console.log(response);
             }
-        }, 3)
-
+        };
+        xhr.open("GET", "ws://47.103.86.104:3000", true);
+        xhr.send();
     }
 
     onMouseUp(event: EventMouse) {
