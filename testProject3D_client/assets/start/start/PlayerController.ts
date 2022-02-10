@@ -50,14 +50,33 @@ export class PlayerController extends Component {
         // }, 3)
 
         //TODO 实现简单http实例
+        // let xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+        //         var response = xhr.responseText;
+        //         console.log(response);
+        //     }
+        // };
+        // xhr.open("GET", "ws://47.103.86.104:3000", true);
+        // xhr.send();
+
+        console.log("jin---test http")
         let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
-                var response = xhr.responseText;
-                console.log(response);
-            }
-        };
-        xhr.open("GET", "ws://47.103.86.104:3000", true);
+        xhr.onreadystatechange = function(){
+            console.log('onreadystatechang', xhr.readyState);
+        }
+        xhr.open('GET','http://127.0.0.1:8080/get');
+        xhr.responseType = 'text';
+        xhr.setRequestHeader('name', 'Jin');
+        xhr.setRequestHeader('age', '11');
+        xhr.setRequestHeader('sex', 'man');
+        xhr.onload = function(){
+            console.log('readyState', xhr.readyState);
+            console.log('status', xhr.status);
+            console.log('statusText', xhr.statusText);
+            console.log('getAllResponseHeaders', xhr.getAllResponseHeaders());
+            console.log('response', xhr.response);
+        }
         xhr.send();
     }
 
