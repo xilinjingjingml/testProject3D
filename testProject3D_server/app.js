@@ -1,7 +1,7 @@
 /*
  * @Author: Jin
  * @Date: 2021-08-27 09:52:40
- * @LastEditTime: 2022-02-10 11:24:51
+ * @LastEditTime: 2022-02-11 18:01:57
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \testProject3D\testProject3D_server\app.js
@@ -32,11 +32,11 @@ let server = http.createServer(function(req,res){ //req(request):请求  res(res
 
     // }
 
-    // let {pathname} = url.parse(req.url);//假设 /get?id=1中，只要/get
+    let {pathname} = url.parse(req.url);//假设 /get?id=1中，只要/get
 
     //TODOT 
     // console.log("jin---req,res: ", req, res)
-    let pathname = req.url
+    // let pathname = req.url
     //也可写成一个数组
     if(['/get.html','/post.html'].includes(pathname)){
         res.statusCode = 200;//状态码

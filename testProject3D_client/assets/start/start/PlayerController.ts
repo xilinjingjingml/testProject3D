@@ -1,6 +1,7 @@
 
 import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, v3, Node } from 'cc';
 // import { } from "../start/";
+import { http } from '../../base/Net/http';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -60,24 +61,32 @@ export class PlayerController extends Component {
         // xhr.open("GET", "ws://47.103.86.104:3000", true);
         // xhr.send();
 
-        console.log("jin---test http")
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            console.log('onreadystatechang', xhr.readyState);
-        }
-        xhr.open('GET','http://127.0.0.1:8080/get');
-        xhr.responseType = 'text';
-        xhr.setRequestHeader('name', 'Jin');
-        xhr.setRequestHeader('age', '11');
-        xhr.setRequestHeader('sex', 'man');
-        xhr.onload = function(){
-            console.log('readyState', xhr.readyState);
-            console.log('status', xhr.status);
-            console.log('statusText', xhr.statusText);
-            console.log('getAllResponseHeaders', xhr.getAllResponseHeaders());
-            console.log('response', xhr.response);
-        }
-        xhr.send();
+        // console.log("jin---test http")
+        // let xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function(){
+        //     console.log('onreadystatechang', xhr.readyState);
+        // }
+        // xhr.open('GET','http://127.0.0.1:8080/get');
+        // xhr.responseType = 'text';
+        // xhr.setRequestHeader('name', 'Jin');
+        // xhr.setRequestHeader('age', '11');
+        // xhr.setRequestHeader('sex', 'man');
+        // xhr.onload = function(){
+        //     console.log('readyState', xhr.readyState);
+        //     console.log('status', xhr.status);
+        //     console.log('statusText', xhr.statusText);
+        //     console.log('getAllResponseHeaders', xhr.getAllResponseHeaders());
+        //     console.log('response', xhr.response);
+        // }
+        // xhr.send();
+
+        console.log("jin---test http 封装")
+        http.open('http://127.0.0.1:8080/get', {
+            name: "Jin",
+            sex: "man"
+        },(res)=>{
+            console.log("jin---res: ", res)
+        })
     }
 
     onMouseUp(event: EventMouse) {

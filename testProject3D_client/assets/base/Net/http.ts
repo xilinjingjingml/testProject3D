@@ -94,13 +94,40 @@ export namespace http{
         }
         
 
-        //method: 1.post  2.get
+        //TODO method: 1.post(先搞最简单处理，后期可加密)  2.get
         let body: string | null = null
         if(option.query){
+            if(option.method == "POST"){
+                //TODO 后期可加密处理
+                // body = JSON.stringify(option.query)  
+                const querys = []
+                for(const key in option.query){
+                    querys.push(key + "=" + encodeURIComponent(option.query[key]))
+                }
+                if(querys.length > 0){
+                    body = querys.join("&")
+                }
+                
+            }else{
+                const querys = []
+                for(const key in option.query){
+                    querys.push(key + "=" + encodeURIComponent(option.query[key]))//此处加密，在服务器就要解密
+                }
 
+                if(querys.length > 0){
+                    option.url += "?"
+                    option.url += querys.join("&")
+                }
+            }
+            
         }
+
+        console.log("jin---观察传递的信息", option.url)
+        xhr.open(option.method || "GET", option.url, true)
+        if (option.method == "POST" && option.queryType == "formdata") {
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        }
+        xhr.send(body)
     }
-
-
 }
 
